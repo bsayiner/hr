@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.yjs3505.humanresources.model.entity.Employee;
 import com.yjs3505.humanresources.model.service.RESTFulService;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -46,4 +48,11 @@ public final class DbContext {
         service.save(employee).enqueue(call);
     }
 
+    public void delete(long id, Callback<Void> call) {
+        service.delete(id).enqueue(call);
+    }
+
+    public void findAll(Callback<List<Employee>> callback)  {
+        service.findAll().enqueue(callback);
+    }
 }
